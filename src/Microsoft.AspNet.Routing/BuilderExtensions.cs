@@ -9,9 +9,9 @@ namespace Microsoft.AspNet.Builder
 {
     public static class BuilderExtensions
     {
-        public static IBuilder UseRouter(this IBuilder builder, IRouteCollection routes)
+        public static IBuilder UseRouter(this IBuilder builder, IRouter router)
         {
-            builder.Use((next) => new RouterMiddleware(next, routes).Invoke);
+            builder.Use((next) => new RouterMiddleware(next, router).Invoke);
             return builder;
         }
     }
